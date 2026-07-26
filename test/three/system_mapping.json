@@ -1,0 +1,26 @@
+{
+  "A": {
+    "system": "MelCodec codebook 1024",
+    "source": "/home/duhuipeng/mnt_101/vocoder4/codecs_output/dacstyle_code1024_01300000_hifigan_01000000_test"
+  },
+  "B": {
+    "system": "MelCodec codebook 2048",
+    "source": "/home/duhuipeng/mnt_101/vocoder4/codecs_output/dacstyle_code2048_01000000_hifigan_01000000_test"
+  },
+  "C": {
+    "system": "MelCodec codebook 4096",
+    "source": "/home/duhuipeng/mnt_101/vocoder4/codecs_output/dacstyle_code4096_02200000_hifigan_01000000_test"
+  },
+  "D": {
+    "system": "MelCodec codebook 8192",
+    "source": "/home/duhuipeng/mnt_101/vocoder4/codecs_output/dacstyle_code8192_01900000_hifigan_01000000_test"
+  },
+  "E": {
+    "system": "MelCodec codebook 16384",
+    "source": "/home/duhuipeng/mnt_101/vocoder4/codecs_output/dacstyle_code16384_01200000_hifigan_01000000_test"
+  },
+  "F": {
+    "system": "Ground truth",
+    "source": "/home/duhuipeng/mnt_101/datasets/LibriTTS-16k/test"
+  }
+}
