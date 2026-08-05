@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Audio samples for UMelCodec, an ultra-low-bitrate and lightweight mel-domain neural speech codec.">
+  <title>UMelCodec Audio Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="UMelCodec home">UMelCodec</a>
+    <nav aria-label="Main navigation">
+      <a href="#overview">Overview</a>
+      <a href="#baselines">Baselines</a>
+      <a href="#ablations">Ablations</a>
+      <a href="#codebooks">Codebooks</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="eyebrow">Audio demo · 325 bps neural speech coding</div>
+      <h1>UMelCodec: An Ultra-Low-Bitrate and Lightweight<br class="desktop-only"> Mel-Domain Neural Speech Codec</h1>
+      <p class="authors">Hui-Peng Du · Yang Ai · Zhen-Hua Ling</p>
+      <p class="affiliation">University of Science and Technology of China</p>
+      <div class="hero-actions">
+        <a class="button primary" href="paper.pdf">Read the paper</a>
+        <a class="button secondary" href="https://github.com/redmist328/UMelCodecdemo">GitHub</a>
+      </div>
+      <div class="metrics" aria-label="Model highlights">
+        <div><strong>325</strong><span>bit/s</span></div>
+        <div><strong>19.67M</strong><span>parameters</span></div>
+        <div><strong>3.85G</strong><span>MACs / 2 s</span></div>
+        <div><strong>25 Hz</strong><span>token rate</span></div>
+      </div>
+    </section>
+
+    <section id="overview" class="section overview">
+      <div class="section-heading">
+        <span class="section-number">01</span>
+        <div>
+          <p class="kicker">Overview</p>
+          <h2>A purely acoustic codec at an ultra-low bitrate</h2>
+        </div>
+      </div>
+      <div class="abstract-grid">
+        <h3>Abstract</h3>
+        <p>Ultra-low-bitrate speech coding is crucial for bandwidth-constrained communication and compact storage, but preserving intelligibility, naturalness, and fine-grained acoustic details at bitrates of only a few hundred bps remains challenging. We propose UMelCodec, a purely acoustic neural speech codec operating in the mel domain at 325 bps with a lightweight architecture. Its mel-domain coding stage combines alias-free Snake-ConvNeXt backbones, a factorized single-codebook vector quantizer, and a multi-scale mel-spectrogram discriminator. A lightweight MDCT-based neural vocoder then predicts the MDCT spectrum from the reconstructed mel spectrogram and recovers the waveform through inverse MDCT. Experiments on LibriTTS show strong reconstruction quality, competitive subjective naturalness, and real-time inference on both GPU and CPU.</p>
+      </div>
+      <figure class="paper-figure architecture-figure">
+        <img src="assets/architecture.png" alt="Overall framework of UMelCodec, including mel-domain coding and MDCT-based waveform synthesis.">
+        <figcaption>Fig. 1. Overall framework of UMelCodec.</figcaption>
+      </figure>
+      <div class="stage-grid">
+        <article><span>Stage 1</span><h3>Mel-domain coding</h3><p>AF-SC encoder and decoder backbones model temporal and harmonic structure around a factorized 8192-entry single codebook.</p></article>
+        <article><span>Stage 2</span><h3>Waveform synthesis</h3><p>The reconstructed mel spectrogram conditions a lightweight MelMDCT vocoder that predicts MDCT coefficients and applies inverse MDCT.</p></article>
+      </div>
+    </section>
+
+    <section id="baselines" class="section experiment-section">
+      <div class="section-heading">
+        <span class="section-number">02</span>
+        <div>
+          <p class="kicker">Experiment I</p>
+          <h2>Comparison with Baseline Codecs</h2>
+        </div>
+      </div>
+      <p class="section-copy">All systems operate at approximately 325 bps. DAC, BigCodec, and FMelCodec were retrained at a 25 Hz frame rate with an 8192-entry codebook; SemantiCodec and FocalCodec use their official checkpoints. UMelCodec samples use the MDCT-based vocoder described in the paper.</p>
+      <div class="tab-list" role="tablist" aria-label="Baseline test set">
+        <button class="tab active" type="button" data-baseline-split="clean" role="tab" aria-selected="true">LibriTTS test-clean</button>
+        <button class="tab" type="button" data-baseline-split="other" role="tab" aria-selected="false">LibriTTS test-other</button>
+      </div>
+      <div id="baseline-table" class="audio-table-wrap" aria-live="polite"></div>
+    </section>
+
+    <section id="ablations" class="section experiment-section tinted">
+      <div class="section-heading">
+        <span class="section-number">03</span>
+        <div>
+          <p class="kicker">Experiment II</p>
+          <h2>Ablation Studies</h2>
+        </div>
+      </div>
+      <p class="section-copy">These samples isolate the effects of multi-scale mel adversarial supervision, alias-free filtering around SnakeBeta, and low-dimensional VQ factorization. Every codec variant uses the same MelMDCT waveform synthesis backend.</p>
+      <div id="ablation-table" class="audio-table-wrap"></div>
+    </section>
+
+    <section id="codebooks" class="section experiment-section">
+      <div class="section-heading">
+        <span class="section-number">04</span>
+        <div>
+          <p class="kicker">Experiment III</p>
+          <h2>Analysis of the Effect of Codebook Size</h2>
+        </div>
+      </div>
+      <div class="analysis-grid">
+        <div>
+          <p class="section-copy">Increasing the codebook size improves ViSQOL up to 8192 entries, where the codebook is fully utilized. At 16384 entries, utilization drops and reconstruction quality slightly degrades. The listening samples below use the same utterances and MelMDCT backend across all codebook sizes.</p>
+          <div class="callout"><strong>8192 entries</strong><span>Best quality–utilization trade-off</span></div>
+        </div>
+        <figure class="paper-figure codebook-figure">
+          <img src="assets/codebook-analysis.png" alt="ViSQOL and codebook utilization as a function of codebook size.">
+          <figcaption>Fig. 2. Effect of codebook size on ViSQOL and utilization.</figcaption>
+        </figure>
+      </div>
+      <div id="codebook-table" class="audio-table-wrap"></div>
+    </section>
+
+    <section class="section citation-section">
+      <p class="kicker">Citation</p>
+      <h2>UMelCodec</h2>
+      <pre><code>@article{du2026umelcodec,
+  title   = {UMelCodec: An Ultra-Low-Bitrate and Lightweight
+             Mel-Domain Neural Speech Codec},
+  author  = {Du, Hui-Peng and Ai, Yang and Ling, Zhen-Hua},
+  year    = {2026}
+}</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <span>UMelCodec audio demo</span>
+    <span>National Engineering Research Center of Speech and Language Information Processing, USTC</span>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
