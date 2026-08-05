@@ -2,191 +2,179 @@
   "baselines": {
     "test-clean": [
       {
-        "original_filename": "4446_2273_000010_000001.wav",
-        "duration_seconds": 1.71,
-        "umelcodec_utmos": 4.173491,
-        "focalcodec_utmos": 3.905534,
-        "utmos_difference": 0.26795700000000044,
+        "original_filename": "8555_284447_000048_000001.wav",
+        "duration_seconds": 1.92,
+        "umelcodec_utmos": 4.328663,
+        "umelcodec_rank": 1,
         "index": "01"
       },
       {
-        "original_filename": "1995_1836_000028_000000.wav",
-        "duration_seconds": 2.05,
-        "umelcodec_utmos": 4.101303,
-        "focalcodec_utmos": 3.889767,
-        "utmos_difference": 0.21153599999999972,
+        "original_filename": "1580_141084_000080_000001.wav",
+        "duration_seconds": 1.5800625,
+        "umelcodec_utmos": 4.303159,
+        "umelcodec_rank": 2,
         "index": "02"
       },
       {
-        "original_filename": "3570_5696_000004_000000.wav",
-        "duration_seconds": 2.75,
-        "umelcodec_utmos": 3.990006,
-        "focalcodec_utmos": 3.93958,
-        "utmos_difference": 0.050426000000000304,
+        "original_filename": "5683_32865_000004_000000.wav",
+        "duration_seconds": 4.07,
+        "umelcodec_utmos": 4.233706,
+        "umelcodec_rank": 3,
         "index": "03"
       },
       {
-        "original_filename": "1995_1836_000025_000000.wav",
-        "duration_seconds": 4.72,
-        "umelcodec_utmos": 3.91735,
-        "focalcodec_utmos": 3.902663,
-        "utmos_difference": 0.014686999999999895,
+        "original_filename": "1995_1837_000012_000000.wav",
+        "duration_seconds": 3.23,
+        "umelcodec_utmos": 4.192214,
+        "umelcodec_rank": 4,
         "index": "04"
       },
       {
-        "original_filename": "260_123286_000027_000002.wav",
-        "duration_seconds": 1.58,
-        "umelcodec_utmos": 3.853476,
-        "focalcodec_utmos": 3.841041,
-        "utmos_difference": 0.012434999999999974,
+        "original_filename": "8555_284449_000024_000001.wav",
+        "duration_seconds": 2.13,
+        "umelcodec_utmos": 4.188904,
+        "umelcodec_rank": 5,
         "index": "05"
       },
       {
-        "original_filename": "237_126133_000015_000003.wav",
-        "duration_seconds": 2.05,
-        "umelcodec_utmos": 3.63736,
-        "focalcodec_utmos": 3.648052,
-        "utmos_difference": -0.010691999999999702,
+        "original_filename": "8230_279154_000013_000003.wav",
+        "duration_seconds": 1.81,
+        "umelcodec_utmos": 4.179513,
+        "umelcodec_rank": 6,
         "index": "06"
       }
     ],
     "test-other": [
       {
-        "original_filename": "3764_168670_000024_000000.wav",
-        "duration_seconds": 1.92,
-        "umelcodec_utmos": 2.886067,
-        "focalcodec_utmos": 2.360522,
-        "utmos_difference": 0.5255450000000002,
+        "original_filename": "4294_9934_000034_000000.wav",
+        "duration_seconds": 1.65,
+        "umelcodec_utmos": 4.085429,
+        "umelcodec_rank": 1,
         "index": "01"
       },
       {
-        "original_filename": "3764_168671_000034_000002.wav",
-        "duration_seconds": 2.09,
-        "umelcodec_utmos": 2.950928,
-        "focalcodec_utmos": 2.649151,
-        "utmos_difference": 0.3017770000000004,
+        "original_filename": "7105_2340_000014_000000.wav",
+        "duration_seconds": 3.55,
+        "umelcodec_utmos": 3.922599,
+        "umelcodec_rank": 2,
         "index": "02"
       },
       {
-        "original_filename": "6128_63240_000000_000000.wav",
-        "duration_seconds": 1.7,
-        "umelcodec_utmos": 3.366408,
-        "focalcodec_utmos": 3.147256,
-        "utmos_difference": 0.2191519999999998,
+        "original_filename": "7105_2330_000033_000002.wav",
+        "duration_seconds": 4.0,
+        "umelcodec_utmos": 3.836683,
+        "umelcodec_rank": 3,
         "index": "03"
       },
       {
-        "original_filename": "3528_168669_000148_000000.wav",
-        "duration_seconds": 2.11,
-        "umelcodec_utmos": 2.584678,
-        "focalcodec_utmos": 2.377727,
-        "utmos_difference": 0.20695099999999966,
+        "original_filename": "7105_2340_000038_000001.wav",
+        "duration_seconds": 2.81,
+        "umelcodec_utmos": 3.833993,
+        "umelcodec_rank": 4,
         "index": "04"
       },
       {
-        "original_filename": "8188_269290_000022_000000.wav",
-        "duration_seconds": 2.38,
-        "umelcodec_utmos": 3.291242,
-        "focalcodec_utmos": 3.15028,
-        "utmos_difference": 0.14096200000000003,
+        "original_filename": "4294_14317_000021_000002.wav",
+        "duration_seconds": 2.9800625,
+        "umelcodec_utmos": 3.824445,
+        "umelcodec_rank": 5,
         "index": "05"
       },
       {
-        "original_filename": "3764_168670_000087_000004.wav",
-        "duration_seconds": 1.85,
-        "umelcodec_utmos": 2.591325,
-        "focalcodec_utmos": 2.484055,
-        "utmos_difference": 0.10726999999999975,
+        "original_filename": "3331_159605_000002_000010.wav",
+        "duration_seconds": 1.86,
+        "umelcodec_utmos": 3.812945,
+        "umelcodec_rank": 6,
         "index": "06"
       }
     ]
   },
   "ablations": [
     {
-      "index": "01",
-      "original_filename": "237_134500_000005_000003.wav",
-      "candidate_rank": "4",
-      "duration_seconds": "4.200000",
-      "main_utmos": "3.886045",
-      "no_af_utmos": "2.967148",
-      "utmos_difference": "0.918897"
+      "original_filename": "8555_284449_000024_000001.wav",
+      "duration_seconds": 2.13,
+      "umelcodec_utmos": 4.188904,
+      "umelcodec_rank": 5,
+      "index": "01"
     },
     {
-      "index": "02",
-      "original_filename": "2961_961_000026_000002.wav",
-      "candidate_rank": "14",
-      "duration_seconds": "8.569812",
-      "main_utmos": "3.602652",
-      "no_af_utmos": "2.747828",
-      "utmos_difference": "0.854824"
+      "original_filename": "8230_279154_000013_000003.wav",
+      "duration_seconds": 1.81,
+      "umelcodec_utmos": 4.179513,
+      "umelcodec_rank": 6,
+      "index": "02"
     },
     {
-      "index": "03",
-      "original_filename": "1320_122612_000023_000001.wav",
-      "candidate_rank": "12",
-      "duration_seconds": "2.030000",
-      "main_utmos": "4.302804",
-      "no_af_utmos": "3.437438",
-      "utmos_difference": "0.865366"
+      "original_filename": "8455_210777_000023_000001.wav",
+      "duration_seconds": 1.56,
+      "umelcodec_utmos": 4.178844,
+      "umelcodec_rank": 7,
+      "index": "03"
     },
     {
-      "index": "04",
-      "original_filename": "4446_2273_000014_000002.wav",
-      "candidate_rank": "8",
-      "duration_seconds": "4.750000",
-      "main_utmos": "4.037118",
-      "no_af_utmos": "3.165201",
-      "utmos_difference": "0.871917"
+      "original_filename": "4446_2273_000010_000001.wav",
+      "duration_seconds": 1.71,
+      "umelcodec_utmos": 4.173491,
+      "umelcodec_rank": 8,
+      "index": "04"
     },
     {
-      "index": "05",
-      "original_filename": "5105_28241_000004_000004.wav",
-      "candidate_rank": "6",
-      "duration_seconds": "10.120000",
-      "main_utmos": "3.829913",
-      "no_af_utmos": "2.930269",
-      "utmos_difference": "0.899644"
+      "original_filename": "4992_41806_000014_000000.wav",
+      "duration_seconds": 3.13,
+      "umelcodec_utmos": 4.161944,
+      "umelcodec_rank": 9,
+      "index": "05"
     },
     {
-      "index": "06",
-      "original_filename": "1284_1181_000033_000000.wav",
-      "candidate_rank": "11",
-      "duration_seconds": "3.460000",
-      "main_utmos": "3.732281",
-      "no_af_utmos": "2.866329",
-      "utmos_difference": "0.865952"
+      "original_filename": "1320_122612_000032_000000.wav",
+      "duration_seconds": 2.12,
+      "umelcodec_utmos": 4.147671,
+      "umelcodec_rank": 10,
+      "index": "06"
     }
   ],
   "codebooks": [
     {
-      "index": "01",
-      "original_filename": "237_134500_000004_000004.wav",
-      "duration_seconds": "1.680000"
+      "original_filename": "4992_41806_000014_000000.wav",
+      "duration_seconds": 3.13,
+      "umelcodec_utmos": 4.161944,
+      "umelcodec_rank": 9,
+      "index": "01"
     },
     {
-      "index": "02",
-      "original_filename": "8455_210777_000022_000004.wav",
-      "duration_seconds": "4.840000"
+      "original_filename": "1320_122612_000032_000000.wav",
+      "duration_seconds": 2.12,
+      "umelcodec_utmos": 4.147671,
+      "umelcodec_rank": 10,
+      "index": "02"
     },
     {
-      "index": "03",
-      "original_filename": "7729_102255_000028_000004.wav",
-      "duration_seconds": "5.160063"
+      "original_filename": "4446_2275_000021_000005.wav",
+      "duration_seconds": 2.85,
+      "umelcodec_utmos": 4.142176,
+      "umelcodec_rank": 11,
+      "index": "03"
     },
     {
-      "index": "04",
-      "original_filename": "1995_1837_000024_000001.wav",
-      "duration_seconds": "1.970000"
+      "original_filename": "3570_5694_000010_000006.wav",
+      "duration_seconds": 2.56,
+      "umelcodec_utmos": 4.122949,
+      "umelcodec_rank": 12,
+      "index": "04"
     },
     {
-      "index": "05",
-      "original_filename": "260_123286_000029_000000.wav",
-      "duration_seconds": "8.120000"
+      "original_filename": "1320_122612_000056_000000.wav",
+      "duration_seconds": 2.65,
+      "umelcodec_utmos": 4.114442,
+      "umelcodec_rank": 13,
+      "index": "05"
     },
     {
-      "index": "06",
-      "original_filename": "8230_279154_000022_000000.wav",
-      "duration_seconds": "14.870000"
+      "original_filename": "1995_1836_000028_000000.wav",
+      "duration_seconds": 2.05,
+      "umelcodec_utmos": 4.101303,
+      "umelcodec_rank": 14,
+      "index": "06"
     }
   ],
   "note": "All UMelCodec, ablation, and codebook samples use the MelMDCT backend."

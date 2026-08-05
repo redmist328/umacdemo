@@ -10,11 +10,8 @@ from pathlib import Path
 
 BASELINE_SAMPLE_COUNT = 6
 MIN_BASELINE_DURATION_SECONDS = 1.5
-
-
-def read_rows(path, count):
-    with path.open(newline="") as handle:
-        return list(csv.DictReader(handle))[:count]
+ABLATION_RANK_OFFSET = 4
+CODEBOOK_RANK_OFFSET = 8
 
 
 def copy_audio(source, target):
@@ -22,6 +19,7 @@ def copy_audio(source, target):
         raise FileNotFoundError(source)
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source, target)
+    target.chmod(0o644)
 
 
 def copy_browser_audio(source, target, convert_to_pcm=False):
@@ -30,6 +28,7 @@ def copy_browser_audio(source, target, convert_to_pcm=False):
     target.parent.mkdir(parents=True, exist_ok=True)
     if not convert_to_pcm:
         shutil.copy2(source, target)
+        target.chmod(0o644)
         return
     subprocess.run(
         [
@@ -46,6 +45,7 @@ def copy_browser_audio(source, target, convert_to_pcm=False):
         ],
         check=True,
     )
+    target.chmod(0o644)
 
 
 def read_utmos(path):
@@ -59,6 +59,38 @@ def read_utmos(path):
 def wav_duration_seconds(path):
     with wave.open(str(path), "rb") as handle:
         return handle.getnframes() / float(handle.getframerate())
+
+
+def rank_umelcodec_samples(dataset, score_path):
+    scores = read_utmos(score_path)
+    ranked = []
+    for original, score in scores.items():
+        gt = dataset / original
+        if not gt.is_file():
+            continue
+        duration = wav_duration_seconds(gt)
+        if duration < MIN_BASELINE_DURATION_SECONDS:
+            continue
+        ranked.append(
+            {
+                "original_filename": original,
+                "duration_seconds": duration,
+                "umelcodec_utmos": score,
+            }
+        )
+    ranked.sort(key=lambda row: (-row["umelcodec_utmos"], row["original_filename"]))
+    for rank, row in enumerate(ranked, 1):
+        row["umelcodec_rank"] = rank
+    return ranked
+
+
+def select_ranked_samples(ranked, offset, count):
+    rows = [dict(row) for row in ranked[offset:offset + count]]
+    if len(rows) != count:
+        raise RuntimeError("not enough ranked UMelCodec samples")
+    for index, row in enumerate(rows, 1):
+        row["index"] = "{:02d}".format(index)
+    return rows
 
 
 def prepare_baselines(vocoder4, destination):
@@ -95,33 +127,11 @@ def prepare_baselines(vocoder4, destination):
     }
     manifest = {}
     for source_split, output_split in (("test", "test-clean"), ("testother", "test-other")):
-        umel_scores = read_utmos(systems["umelcodec"][source_split] / "utmos_scores.csv")
-        focal_scores = read_utmos(systems["focalcodec"][source_split] / "utmos_scores.csv")
-        candidates = []
-        for original in sorted(umel_scores.keys() & focal_scores.keys()):
-            gt = datasets[source_split] / original
-            if not gt.is_file():
-                continue
-            duration = wav_duration_seconds(gt)
-            if duration < MIN_BASELINE_DURATION_SECONDS:
-                continue
-            candidates.append(
-                {
-                    "original_filename": original,
-                    "duration_seconds": duration,
-                    "umelcodec_utmos": umel_scores[original],
-                    "focalcodec_utmos": focal_scores[original],
-                    "utmos_difference": umel_scores[original] - focal_scores[original],
-                }
-            )
-        candidates.sort(
-            key=lambda row: (-row["utmos_difference"], row["original_filename"])
+        ranked = rank_umelcodec_samples(
+            datasets[source_split],
+            systems["umelcodec"][source_split] / "utmos_scores.csv",
         )
-        rows = candidates[:BASELINE_SAMPLE_COUNT]
-        if len(rows) != BASELINE_SAMPLE_COUNT:
-            raise RuntimeError("not enough baseline candidates for {}".format(source_split))
-        for index, row in enumerate(rows, 1):
-            row["index"] = "{:02d}".format(index)
+        rows = select_ranked_samples(ranked, 0, BASELINE_SAMPLE_COUNT)
         manifest[output_split] = rows
         for row in rows:
             number = row["index"]
@@ -138,35 +148,40 @@ def prepare_baselines(vocoder4, destination):
 
 
 def prepare_ablations(vocoder4, destination):
-    subjective = vocoder4 / "主观测听/test"
     output = vocoder4 / "codecs_output"
+    dataset = vocoder4.parent / "datasets/LibriTTS-16k/test"
     sources = {
         "umelcodec": output / "dacstyle_code8192_01900000_melmdct_vocos_mpd_mrd_01000000_test",
         "no-msmd": output / "ablation_no_discriminator_code8192_01100000_melmdct_vocos_mpd_mrd_01000000_test",
         "no-af": output / "ablation_no_af_resampling_code8192_01100000_melmdct_vocos_mpd_mrd_01000000_test",
         "no-vq-factorization": output / "ablation_direct32_vq_code8192_01000000_melmdct_vocos_mpd_mrd_01000000_test",
     }
-    rows = read_rows(subjective / "ablation_selection_manifest.csv", 6)
+    ranked = rank_umelcodec_samples(
+        dataset, sources["umelcodec"] / "utmos_scores.csv"
+    )
+    rows = select_ranked_samples(ranked, ABLATION_RANK_OFFSET, 6)
     for row in rows:
         number = row["index"]
         original = row["original_filename"]
         root = destination / "ablations/test-clean" / number
-        copy_audio(subjective / "J" / ("J_{}.wav".format(number)), root / "gt.wav")
+        copy_audio(dataset / original, root / "gt.wav")
         for key, source in sources.items():
             copy_audio(source / original, root / (key + ".wav"))
     return rows
 
 
 def prepare_codebooks(vocoder4, destination):
-    subjective = vocoder4 / "主观测听/test/three"
     output = vocoder4 / "codecs_output"
+    dataset = vocoder4.parent / "datasets/LibriTTS-16k/test"
     checkpoints = {"1024": "01300000", "2048": "01000000", "4096": "02200000", "8192": "01900000", "16384": "01200000"}
-    rows = read_rows(subjective / "selection_manifest.csv", 6)
+    main_source = output / "dacstyle_code8192_01900000_melmdct_vocos_mpd_mrd_01000000_test"
+    ranked = rank_umelcodec_samples(dataset, main_source / "utmos_scores.csv")
+    rows = select_ranked_samples(ranked, CODEBOOK_RANK_OFFSET, 6)
     for row in rows:
         number = row["index"]
         original = row["original_filename"]
         root = destination / "codebooks/test-clean" / number
-        copy_audio(subjective / "F" / ("F_{}.wav".format(number)), root / "gt.wav")
+        copy_audio(dataset / original, root / "gt.wav")
         for size, checkpoint in checkpoints.items():
             source = output / ("dacstyle_code{}_{}_melmdct_vocos_mpd_mrd_01000000_test".format(size, checkpoint))
             copy_audio(source / original, root / (size + ".wav"))
