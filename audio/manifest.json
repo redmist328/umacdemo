@@ -2,114 +2,102 @@
   "baselines": {
     "test-clean": [
       {
-        "index": "01",
-        "original_filename": "4446_2275_000016_000001.wav",
-        "candidate_rank": "45",
-        "duration_seconds": "2.510000",
-        "melcodec_hifigan_utmos": "4.152109",
-        "focalcodec_utmos": "3.893907",
-        "utmos_difference": "0.258202"
+        "original_filename": "4446_2273_000010_000001.wav",
+        "duration_seconds": 1.71,
+        "umelcodec_utmos": 4.173491,
+        "focalcodec_utmos": 3.905534,
+        "utmos_difference": 0.26795700000000044,
+        "index": "01"
       },
       {
-        "index": "02",
-        "original_filename": "237_134493_000009_000004.wav",
-        "candidate_rank": "17",
-        "duration_seconds": "2.230000",
-        "melcodec_hifigan_utmos": "3.535202",
-        "focalcodec_utmos": "3.162948",
-        "utmos_difference": "0.372254"
+        "original_filename": "1995_1836_000028_000000.wav",
+        "duration_seconds": 2.05,
+        "umelcodec_utmos": 4.101303,
+        "focalcodec_utmos": 3.889767,
+        "utmos_difference": 0.21153599999999972,
+        "index": "02"
       },
       {
-        "index": "03",
-        "original_filename": "5683_32866_000021_000000.wav",
-        "candidate_rank": "40",
-        "duration_seconds": "2.180000",
-        "melcodec_hifigan_utmos": "4.286722",
-        "focalcodec_utmos": "4.020672",
-        "utmos_difference": "0.266050"
+        "original_filename": "3570_5696_000004_000000.wav",
+        "duration_seconds": 2.75,
+        "umelcodec_utmos": 3.990006,
+        "focalcodec_utmos": 3.93958,
+        "utmos_difference": 0.050426000000000304,
+        "index": "03"
       },
       {
-        "index": "04",
-        "original_filename": "237_134493_000008_000002.wav",
-        "candidate_rank": "9",
-        "duration_seconds": "1.770000",
-        "melcodec_hifigan_utmos": "3.783491",
-        "focalcodec_utmos": "3.351652",
-        "utmos_difference": "0.431839"
+        "original_filename": "1995_1836_000025_000000.wav",
+        "duration_seconds": 4.72,
+        "umelcodec_utmos": 3.91735,
+        "focalcodec_utmos": 3.902663,
+        "utmos_difference": 0.014686999999999895,
+        "index": "04"
       },
       {
-        "index": "05",
-        "original_filename": "6930_81414_000042_000003.wav",
-        "candidate_rank": "1",
-        "duration_seconds": "1.820000",
-        "melcodec_hifigan_utmos": "2.106173",
-        "focalcodec_utmos": "1.465632",
-        "utmos_difference": "0.640541"
+        "original_filename": "260_123286_000027_000002.wav",
+        "duration_seconds": 1.58,
+        "umelcodec_utmos": 3.853476,
+        "focalcodec_utmos": 3.841041,
+        "utmos_difference": 0.012434999999999974,
+        "index": "05"
       },
       {
-        "index": "06",
-        "original_filename": "237_134493_000021_000000.wav",
-        "candidate_rank": "35",
-        "duration_seconds": "7.160000",
-        "melcodec_hifigan_utmos": "4.043183",
-        "focalcodec_utmos": "3.759201",
-        "utmos_difference": "0.283982"
+        "original_filename": "237_126133_000015_000003.wav",
+        "duration_seconds": 2.05,
+        "umelcodec_utmos": 3.63736,
+        "focalcodec_utmos": 3.648052,
+        "utmos_difference": -0.010691999999999702,
+        "index": "06"
       }
     ],
     "test-other": [
       {
-        "index": "01",
+        "original_filename": "3764_168670_000024_000000.wav",
+        "duration_seconds": 1.92,
+        "umelcodec_utmos": 2.886067,
+        "focalcodec_utmos": 2.360522,
+        "utmos_difference": 0.5255450000000002,
+        "index": "01"
+      },
+      {
+        "original_filename": "3764_168671_000034_000002.wav",
+        "duration_seconds": 2.09,
+        "umelcodec_utmos": 2.950928,
+        "focalcodec_utmos": 2.649151,
+        "utmos_difference": 0.3017770000000004,
+        "index": "02"
+      },
+      {
+        "original_filename": "6128_63240_000000_000000.wav",
+        "duration_seconds": 1.7,
+        "umelcodec_utmos": 3.366408,
+        "focalcodec_utmos": 3.147256,
+        "utmos_difference": 0.2191519999999998,
+        "index": "03"
+      },
+      {
         "original_filename": "3528_168669_000148_000000.wav",
-        "candidate_rank": "7",
-        "duration_seconds": "2.110000",
-        "melcodec_hifigan_utmos": "2.888380",
-        "focalcodec_utmos": "2.377727",
-        "utmos_difference": "0.510653"
+        "duration_seconds": 2.11,
+        "umelcodec_utmos": 2.584678,
+        "focalcodec_utmos": 2.377727,
+        "utmos_difference": 0.20695099999999966,
+        "index": "04"
       },
       {
-        "index": "02",
-        "original_filename": "4852_28319_000006_000001.wav",
-        "candidate_rank": "28",
-        "duration_seconds": "1.590000",
-        "melcodec_hifigan_utmos": "3.024723",
-        "focalcodec_utmos": "2.756756",
-        "utmos_difference": "0.267967"
+        "original_filename": "8188_269290_000022_000000.wav",
+        "duration_seconds": 2.38,
+        "umelcodec_utmos": 3.291242,
+        "focalcodec_utmos": 3.15028,
+        "utmos_difference": 0.14096200000000003,
+        "index": "05"
       },
       {
-        "index": "03",
-        "original_filename": "5442_41169_000008_000002.wav",
-        "candidate_rank": "45",
-        "duration_seconds": "1.800000",
-        "melcodec_hifigan_utmos": "3.325472",
-        "focalcodec_utmos": "3.142892",
-        "utmos_difference": "0.182580"
-      },
-      {
-        "index": "04",
-        "original_filename": "6070_63485_000037_000001.wav",
-        "candidate_rank": "24",
-        "duration_seconds": "1.610000",
-        "melcodec_hifigan_utmos": "3.474705",
-        "focalcodec_utmos": "3.176711",
-        "utmos_difference": "0.297994"
-      },
-      {
-        "index": "05",
-        "original_filename": "8461_278226_000008_000000.wav",
-        "candidate_rank": "41",
-        "duration_seconds": "2.250000",
-        "melcodec_hifigan_utmos": "3.548747",
-        "focalcodec_utmos": "3.344873",
-        "utmos_difference": "0.203874"
-      },
-      {
-        "index": "06",
-        "original_filename": "8131_117017_000005_000002.wav",
-        "candidate_rank": "15",
-        "duration_seconds": "4.250000",
-        "melcodec_hifigan_utmos": "4.164169",
-        "focalcodec_utmos": "3.806959",
-        "utmos_difference": "0.357210"
+        "original_filename": "3764_168670_000087_000004.wav",
+        "duration_seconds": 1.85,
+        "umelcodec_utmos": 2.591325,
+        "focalcodec_utmos": 2.484055,
+        "utmos_difference": 0.10726999999999975,
+        "index": "06"
       }
     ]
   },
